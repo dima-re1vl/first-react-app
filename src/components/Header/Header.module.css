@@ -1,0 +1,37 @@
+.header {
+  grid-area: header;
+  background-color: #3cb2d6;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  justify-content: space-around;
+}
+
+.logo {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.header_text {
+  font-family: "Lobster", cursive;
+  color: #000000;
+  letter-spacing: 3px;
+  transition: all 0.2s ease-in-out;
+}
+
+.header_text:hover {
+  color: #fff;
+  cursor: default;
+}
+
+.header_tg {
+  font-size: 35px;
+  color: #000;
+  transition: all 0.2s ease-in-out;
+}
+
+.header_tg:hover {
+  color: #f1c606;
+}

@@ -1,0 +1,51 @@
+.post {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.post::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.post.black::before {
+  background-color: #000;
+}
+
+.post.blue::before {
+  background-color: #2aa6cc;
+}
+
+.post.purple::before {
+  background-color: #8d14bd;
+}
+
+.post.white::before {
+  background-color: #ffffff;
+}
+
+.post.green::before {
+  background-color: #1eb938;
+}
+
+.post.red::before {
+  background-color: #be1c1c;
+}
+
+.post_img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post_message {
+  font-size: 18px;
+  font-weight: 400;
+}

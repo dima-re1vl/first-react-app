@@ -1,0 +1,37 @@
+.nav {
+  grid-area: nav;
+  background-color: #e7a52a;
+  border-radius: 20px;
+}
+
+.nav ul {
+  list-style-type: none;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease-in-out;
+  font-size: 18px;
+}
+
+.nav ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.nav ul li a:hover {
+  color: #fff;
+}
+
+ul li a {
+  padding: 5px 10px;
+}
+
+ul li a.activeLink {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+
+.item {
+}

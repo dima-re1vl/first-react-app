@@ -1,0 +1,39 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+.dialogs_items {
+  padding: 5px 0px 0px 30px;
+}
+
+.dialog:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.dialog {
+  font-weight: 500;
+  position: relative;
+}
+
+.dialog a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.2s ease-in-out;
+}
+
+.dialog a:hover {
+  color: #ffffff;
+}
+
+.dialog::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #000000;
+  border-radius: 50%;
+  position: absolute;
+  left: -15%;
+  top: 50%;
+  transform: translateY(-50%);
+}
