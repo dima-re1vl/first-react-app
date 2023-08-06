@@ -10,7 +10,8 @@ let state = {
                 id: 2,
                 message: "my name is Cat",
                 img: "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg",
-            }]
+            }],
+        newPostText: ''
     },
 
     dialogsPage: {
@@ -26,9 +27,12 @@ let state = {
             { id: 2, message: "How are you?" },
             { id: 3, message: "Good, what about you?" },
             { id: 4, message: "Fine!" },
-        ]
+        ],
+        newMessageText: ''
     }
 }
+
+
 
 export let AddPost = (message) => {
     let posts = state.profilePage.posts;
@@ -39,6 +43,13 @@ export let AddPost = (message) => {
 
     state.profilePage.posts.push(newPost);
 
+    ChangePostText('')
+
+    rerenderEntireTree(state);
+}
+
+export let ChangePostText = (message) => {
+    state.profilePage.newPostText = message;
     rerenderEntireTree(state);
 }
 
@@ -51,6 +62,18 @@ export let AddMessage = (message) => {
 
     state.dialogsPage.messages.push(newMessage);
 
+    ChangeMessageText('')
+
     rerenderEntireTree(state);
 }
+
+export let ChangeMessageText = (message) => {
+    state.dialogsPage.newMessageText = message
+    rerenderEntireTree(state);
+}
+
+
+
+
 export default state;
+window.state = state

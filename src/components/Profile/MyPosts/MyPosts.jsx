@@ -3,16 +3,20 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  let postsElements = props.posts.map((p) => (
+  let postsElements = props.data.posts.map((p) => (
     <Post message={p.message} img={p.img ? p.img : ""} />
   ));
 
-  let AddButtonElement = React.createRef();
+  let TextAreaElement = React.createRef();
 
   let AddNewPost = () => {
-    let text = AddButtonElement.current.value;
+    let text = props.data.newPostText;
     props.AddPost(text);
-    AddButtonElement.current.value = "";
+  };
+
+  let ChangeText = () => {
+    let text = TextAreaElement.current.value;
+    props.ChangePostText(text);
   };
 
   return (
@@ -24,7 +28,9 @@ const MyPosts = (props) => {
           cols="40"
           rows="5"
           placeholder="Write something..."
-          ref={AddButtonElement}
+          ref={TextAreaElement}
+          value={props.data.newPostText}
+          onChange={ChangeText}
         ></textarea>
         <button className={s.btn_send} onClick={AddNewPost}>
           Send
