@@ -9,10 +9,10 @@ const MyPosts = (props) => {
 
   let AddButtonElement = React.createRef();
 
-  let AddPost = () => {
+  let AddNewPost = () => {
     let text = AddButtonElement.current.value;
-    debugger;
-    alert(text);
+    props.AddPost(text);
+    AddButtonElement.current.value = "";
   };
 
   return (
@@ -26,7 +26,7 @@ const MyPosts = (props) => {
           placeholder="Write something..."
           ref={AddButtonElement}
         ></textarea>
-        <button className={s.btn_send} onClick={AddPost}>
+        <button className={s.btn_send} onClick={AddNewPost}>
           Send
         </button>
       </div>

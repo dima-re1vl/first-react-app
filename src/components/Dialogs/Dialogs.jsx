@@ -5,10 +5,11 @@ import DialogItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-  let dialogsElements = props.state.dialogs.map((d) => (
+  let dialogsElements = props.data.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
-  let messagesElements = props.state.messages.map((m) => (
+
+  let messagesElements = props.data.messages.map((m) => (
     <Message message={m.message} />
   ));
 
@@ -16,7 +17,7 @@ const Dialogs = (props) => {
 
   let AddMessage = () => {
     let text = NewMessageElement.current.value;
-    alert(text);
+    props.AddMessage(text);
     NewMessageElement.current.value = "";
   };
 
@@ -35,7 +36,7 @@ const Dialogs = (props) => {
             placeholder="Say 'hello)'"
           ></textarea>
           <button className={s.btn_send} onClick={AddMessage}>
-            123
+            Send
           </button>
         </div>
       </div>
