@@ -7,6 +7,14 @@ const MyPosts = (props) => {
     <Post message={p.message} img={p.img ? p.img : ""} />
   ));
 
+  let AddButtonElement = React.createRef();
+
+  let AddPost = () => {
+    let text = AddButtonElement.current.value;
+    debugger;
+    alert(text);
+  };
+
   return (
     <div>
       <div className={s.persons_edit}>
@@ -16,8 +24,11 @@ const MyPosts = (props) => {
           cols="40"
           rows="5"
           placeholder="Write something..."
+          ref={AddButtonElement}
         ></textarea>
-        <button className={s.btn_send}>Send</button>
+        <button className={s.btn_send} onClick={AddPost}>
+          Send
+        </button>
       </div>
 
       <div className={s.posts}>{postsElements}</div>
