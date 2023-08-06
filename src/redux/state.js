@@ -1,5 +1,8 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => { }
 
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
+}
 
 let state = {
 
@@ -62,18 +65,15 @@ export let AddMessage = (message) => {
 
     state.dialogsPage.messages.push(newMessage);
 
-    ChangeMessageText('')
+    ChangeMessageText('');
 
     rerenderEntireTree(state);
 }
 
 export let ChangeMessageText = (message) => {
-    state.dialogsPage.newMessageText = message
+    state.dialogsPage.newMessageText = message;
     rerenderEntireTree(state);
 }
 
-
-
-
 export default state;
-window.state = state
+window.state = state;
