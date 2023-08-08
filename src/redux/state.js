@@ -1,3 +1,15 @@
+export const addPostActionCreator = (text) => ({ type: "ADD-POST" });
+export const updateNewPostTextActionCreator = (text) => ({
+    type: "UPDATE-NEW-POST-TEXT",
+    message: text,
+});
+export const addMessageActionCreator = () => ({ type: "ADD-MESSAGE" });
+export const updateNewMessageActionCreator = (text) => ({
+    type: "UPDATE-NEW-MESSAGE-TEXT",
+    message: text,
+});
+
+
 let store = {
     _state: {
         profilePage: {
@@ -39,7 +51,7 @@ let store = {
             let posts = this._state.profilePage.posts;
             let newPost = {
                 id: posts[posts.length - 1].id + 1,
-                message: action.message
+                message: this._state.profilePage.newPostText
             };
 
             this._state.profilePage.posts.push(newPost);
@@ -54,7 +66,7 @@ let store = {
             let messages = this._state.dialogsPage.messages;
             let newMessage = {
                 id: messages[messages.length - 1].id + 1,
-                message: action.message
+                message: this._state.dialogsPage.newMessageText
             };
 
             this._state.dialogsPage.messages.push(newMessage);
