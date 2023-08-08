@@ -1,14 +1,5 @@
-export const addPostActionCreator = (text) => ({ type: "ADD-POST" });
-export const updateNewPostTextActionCreator = (text) => ({
-    type: "UPDATE-NEW-POST-TEXT",
-    message: text,
-});
-export const addMessageActionCreator = () => ({ type: "ADD-MESSAGE" });
-export const updateNewMessageActionCreator = (text) => ({
-    type: "UPDATE-NEW-MESSAGE-TEXT",
-    message: text,
-});
-
+import DialogsReducer from "./DialogsReducer";
+import ProfileReducer from "./ProfileReducer";
 
 let store = {
     _state: {
@@ -47,37 +38,9 @@ let store = {
         return this._state
     },
     dispatch(action) {
-        if (action.type == 'ADD-POST') {
-            let posts = this._state.profilePage.posts;
-            let newPost = {
-                id: posts[posts.length - 1].id + 1,
-                message: this._state.profilePage.newPostText
-            };
-
-            this._state.profilePage.posts.push(newPost);
-
-            this.dispatch({ type: 'UPDATE-NEW-POST-TEXT', message: '' })
-
-            this._callSubsriber(this._state);
-        } else if (action.type == 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.message;
-            this._callSubsriber(this._state);
-        } else if (action.type == 'ADD-MESSAGE') {
-            let messages = this._state.dialogsPage.messages;
-            let newMessage = {
-                id: messages[messages.length - 1].id + 1,
-                message: this._state.dialogsPage.newMessageText
-            };
-
-            this._state.dialogsPage.messages.push(newMessage);
-
-            this.dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', message: '' })
-
-            this._callSubsriber(this._state);
-        } else if (action.type == 'UPDATE-NEW-MESSAGE-TEXT') {
-            this._state.dialogsPage.newMessageText = action.message;
-            this._callSubsriber(this._state);
-        }
+        ProfileReducer(this._state.profilePage, action);
+        DialogsReducer(this._state.dialogsPage, action);
+        this._callSubsriber(this._state)
     }
 }
 
