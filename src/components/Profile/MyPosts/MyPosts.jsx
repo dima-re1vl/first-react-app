@@ -11,12 +11,12 @@ const MyPosts = (props) => {
 
   let AddNewPost = () => {
     let text = props.data.newPostText;
-    props.AddPost(text);
+    props.dispatch({ type: "ADD-POST", message: text });
   };
 
   let ChangeText = () => {
     let text = TextAreaElement.current.value;
-    props.ChangePostText(text);
+    props.dispatch({ type: "UPDATE-NEW-POST-TEXT", message: text });
   };
 
   return (
