@@ -4,11 +4,21 @@ export const updateNewPostTextActionCreator = (text) => ({
     message: text,
 });
 
-
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const ProfileReducer = (state, action) => {
+let initialState = {
+    posts: [
+        { id: 1, message: "hi, its me" },
+        {
+            id: 2,
+            message: "my name is Cat",
+            img: "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg",
+        }],
+    newPostText: ''
+}
+
+const ProfileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let posts = state.posts;
