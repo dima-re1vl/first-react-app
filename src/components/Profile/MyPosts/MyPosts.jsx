@@ -1,27 +1,21 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import {
-  addPostActionCreator,
-  updateNewPostTextActionCreator,
-} from "../../../redux/ProfileReducer";
 
 const MyPosts = (props) => {
-  let postsElements = props.data.posts.map((p) => (
+  let postsElements = props.posts.map((p) => (
     <Post message={p.message} img={p.img ? p.img : ""} />
   ));
 
   let TextAreaElement = React.createRef();
 
   let AddNewPost = () => {
-    let action = addPostActionCreator();
-    props.dispatch(action);
+    props.addPost();
   };
 
   let ChangeText = () => {
     let text = TextAreaElement.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
+    props.updateNewText(text);
   };
 
   return (
@@ -34,7 +28,7 @@ const MyPosts = (props) => {
           rows="5"
           placeholder="Write something..."
           ref={TextAreaElement}
-          value={props.data.newPostText}
+          value={props.newPostText}
           onChange={ChangeText}
         ></textarea>
         <button className={s.btn_send} onClick={AddNewPost}>
