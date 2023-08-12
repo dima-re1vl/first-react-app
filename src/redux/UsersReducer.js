@@ -3,12 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS'
 
 let initialState = {
-    users: [
-        { id: 1, fullName: 'Dmitriy', status: 'new account', location: { city: 'Kiev', country: 'Ukraine' }, followed: false, photoURL: 'https://launchwebsitedesign.com/wp-content/uploads/2017/09/josh-d-avatar.jpg' },
-        { id: 2, fullName: 'Andrew', status: 'its me', location: { city: 'Minsk', country: 'Belarus' }, followed: true, photoURL: 'https://launchwebsitedesign.com/wp-content/uploads/2017/09/josh-d-avatar.jpg' },
-        { id: 3, fullName: 'Valera', status: 'hello there', location: { city: 'Philadelphia', country: 'USA' }, followed: false, photoURL: 'https://launchwebsitedesign.com/wp-content/uploads/2017/09/josh-d-avatar.jpg' },
-        { id: 4, fullName: 'Misha', status: 'follow me', location: { city: 'Kharkov', country: 'Ukraine' }, followed: true, photoURL: 'https://launchwebsitedesign.com/wp-content/uploads/2017/09/josh-d-avatar.jpg' },
-    ]
+    users: []
 }
 
 const UsersReducer = (state = initialState, action) => {
@@ -38,7 +33,7 @@ const UsersReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                users: action.users
             }
 
         default: {
