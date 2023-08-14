@@ -1,11 +1,6 @@
-export const addPostActionCreator = (text) => ({ type: "ADD-POST" });
-export const updateNewPostTextActionCreator = (text) => ({
-    type: "UPDATE-NEW-POST-TEXT",
-    message: text,
-});
-
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     posts: [
@@ -15,7 +10,8 @@ let initialState = {
             message: "my name is Cat",
             img: "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg",
         }],
-    newPostText: ''
+    newPostText: '',
+    profile: null
 }
 
 const ProfileReducer = (state = initialState, action) => {
@@ -36,10 +32,26 @@ const ProfileReducer = (state = initialState, action) => {
                 newPostText: action.message
             }
         }
+
+        case SET_USER_PROFILE: {
+            return {
+                ...state,
+                profile: action.profile
+            }
+        }
+
         default: {
             return { ...state }
         }
     }
 }
+
+
+export const addPostActionCreator = (text) => ({ type: ADD_POST });
+export const updateNewPostTextActionCreator = (text) => ({
+    type: UPDATE_NEW_POST_TEXT,
+    message: text,
+});
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 
 export default ProfileReducer;

@@ -10,7 +10,6 @@ import {
   setToggleIsFetching,
 } from "../../redux/UsersReducer";
 import axios from "axios";
-import preloader from "../../assets/img/loader.svg";
 import Preloader from "../Common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
