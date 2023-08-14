@@ -26,12 +26,34 @@
   cursor: default;
 }
 
-.header_tg {
-  font-size: 35px;
-  color: #000;
-  transition: all 0.2s ease-in-out;
+.loginBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.header_tg:hover {
-  color: #f1c606;
+.loginBlock i {
+  color: #000;
+  font-size: 30px;
+  transition: 0.4s ease;
+}
+
+.loginBlock .login:hover {
+  color: #fff;
+}
+
+.loginBlock .header_tg:hover {
+  color: #e4ac12;
+}
+
+.loginBlock .header_tg {
+  margin-right: 20px;
+}
+
+.loginName {
+  font-size: 25px;
+  font-weight: 700;
+  background-image: linear-gradient(to left, #da4137, #bd2db5);
+  -webkit-background-clip: text;
+  color: transparent;
 }
